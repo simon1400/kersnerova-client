@@ -4,8 +4,7 @@ import { Container, IconButton, Typography, useMediaQuery } from '@mui/material'
 import ShortItem from 'components/ShortItem';
 import { Navigation } from 'swiper';
 import { SliderWrap, SwiperNav } from './styled';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Arrow from 'public/assets/arrow.svg'
 import { IShortPost } from 'types/ShortPosts';
 import { FC } from 'react';
 
@@ -33,11 +32,11 @@ const Slider: FC<ISlider> = ({data}) => {
           {data.map((item, idx) => <SwiperSlide key={idx}><ShortItem removemargin data={item}/></SwiperSlide>)}
         </Swiper>
         <SwiperNav>
-          <IconButton id="swiper-back" aria-label="swiper-back">
-            <ArrowBackIcon />
+          <IconButton disableRipple id="swiper-back" aria-label="swiper-back">
+            <Arrow />
           </IconButton>
-          <IconButton id="swiper-forward" aria-label="swiper-forward">
-          <ArrowForwardIcon id="swiper-forward" />
+          <IconButton disableRipple id="swiper-forward" aria-label="swiper-forward">
+            <Arrow />
           </IconButton>
         </SwiperNav>
       </Container>

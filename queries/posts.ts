@@ -71,7 +71,7 @@ export const getLastPosts = gql`
 
 export const getAllPosts = gql`
   query getPosts {
-    posts{
+    posts(sort: "publishedAt:asc"){
       data {
         attributes {
           title

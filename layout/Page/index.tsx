@@ -1,7 +1,7 @@
 import { FC, ReactNode } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import Script from "next/script";
+// import Script from "next/script";
 import { useSelector } from "react-redux";
 import { selectAllMeta } from "stores/slices/metaSlices";
 
@@ -16,37 +16,39 @@ interface IPage {
 const Page: FC<IPage> = ({ children, className = "", id = "" }) => {
   const router = useRouter();
 
-  // const {
-  //   image,
-  //   ogTitle,
-  //   ogDescription,
-  //   contentType,
-  //   published,
-  //   category,
-  //   updated,
-  //   tags,
-  //   noCrawl,
-  //   themeColor,
-  //   siteName,
-  //   siteUrl,
-  // } = useSelector(selectAllMeta);
+  const {
+    title,
+    description,
+    image,
+    ogTitle,
+    ogDescription,
+    contentType,
+    published,
+    category,
+    updated,
+    tags,
+    noCrawl,
+    themeColor,
+    siteName,
+    siteUrl,
+  } = useSelector(selectAllMeta);
 
-  // const global = {
-  //   site_url: siteUrl,
-  //   facebook_app_id: "",
-  //   defaultTitle: siteName || "Tulsio",
-  //   defaultDescription: siteName || "Tulsio",
-  //   defaultImage: siteUrl,
-  //   defaultTwitter: "@cereallarceny",
-  //   defaultSep: " | ",
-  //   gtm: "GTM-PQFGK4R",
-  // };
+  const global = {
+    site_url: siteUrl,
+    facebook_app_id: "",
+    defaultTitle: siteName,
+    defaultDescription: siteName,
+    defaultImage: siteUrl,
+    defaultTwitter: "@kersnerova",
+    defaultSep: " | ",
+    gtm: "",
+  };
 
-  // const theTitle = title
-  //   ? title + global.defaultSep + global.defaultTitle
-  //   : global.defaultTitle;
-  // const theDescription = description ? description : global.defaultDescription;
-  // const theImage = image ? image : global.defaultImage;
+  const theTitle = title
+    ? title + global.defaultSep + global.defaultTitle
+    : global.defaultTitle;
+  const theDescription = description ? description : global.defaultDescription;
+  const theImage = image ? image : global.defaultImage;
 
   return (
     <>
@@ -54,41 +56,17 @@ const Page: FC<IPage> = ({ children, className = "", id = "" }) => {
         <meta charSet="utf-8" />
 
         {/* FAVICON */}
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/favicon/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon/favicon-16x16.png"
-        />
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
         <link rel="manifest" href="/favicon/site.webmanifest" />
-        <link
-          rel="mask-icon"
-          href="/favicon/safari-pinned-tab.svg"
-          color="#5bbad5"
-        />
-        <link rel="shortcut icon" href="/favicon/favicon.ico" />
-        <meta
-          name="msapplication-config"
-          content="/favicon/browserconfig.xml"
-        />
-        {/* <meta name="msapplication-TileColor" content={themeColor} />
-        <meta name="theme-color" content={themeColor} /> */}
+        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="msapplication-TileColor" content={themeColor} />
+        <meta name="theme-color" content={themeColor} />
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* <title>{theTitle}</title> */}
-        <title>Title</title>
-        {/* <link
+        <title>{theTitle}</title>
+        <link
           rel="alternate"
           hrefLang="cs"
           href={DOMAIN + "/cs" + (router.asPath !== "/" ? router.asPath : "")}
@@ -126,7 +104,7 @@ const Page: FC<IPage> = ({ children, className = "", id = "" }) => {
         {category && <meta name="article:section" content={category} />}
         {updated && <meta name="article:modified_time" content={updated} />}
         {noCrawl && <meta name="robots" content="noindex, nofollow" />}
-        {tags && <meta name="article:tag" content={tags} />} */}
+        {tags && <meta name="article:tag" content={tags} />}
       </Head>
 
       {/*<!-- Google Tag Manager -->*/}

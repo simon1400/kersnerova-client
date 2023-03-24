@@ -1,6 +1,7 @@
 import { Container, Grid, Typography } from "@mui/material"
-import { FooterS } from "./styled"
+import { CopyrightLogo, FooterS } from "./styled"
 import Logo from 'public/assets/kersnerova-logo.svg'
+import Hardart from 'public/assets/hardart.svg'
 import globalQuery from "queries/global"
 import { useQuery } from "@apollo/client"
 
@@ -21,7 +22,9 @@ const Footer = () => {
             <Typography component="div" dangerouslySetInnerHTML={{__html: data.global.data.attributes.footerInfo}} />
           </Grid>
           <Grid item xs={6}>
-            
+            <CopyrightLogo>
+              <Hardart />
+            </CopyrightLogo>
           </Grid>
         </Grid>
       </Container>

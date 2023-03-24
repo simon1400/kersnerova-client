@@ -10,6 +10,7 @@ export const ButtonS = styled(Button)(({theme}) => `
   line-height: 1;
   border: 1.5px solid ${theme.palette.primary.main};
   border-radius: 0;
+  box-shadow: none;
   &:hover{
     background: white;
     color: ${theme.palette.primary.main};

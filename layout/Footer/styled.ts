@@ -13,6 +13,9 @@ export const FooterS = styled.footer(({theme}) => `
   padding-bottom: 50px;
   p{
     color: rgba(255, 255, 255, 0.8);
+    a{
+      color: rgba(255, 255, 255, 0.8);
+    }
   }
   svg{
     margin-bottom: 50px;
@@ -24,3 +27,15 @@ export const FooterS = styled.footer(({theme}) => `
     }
   }
 `)
+
+export const CopyrightLogo = styled.div`
+  display: flex;
+  align-items: end;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  svg{
+    margin-bottom: 0;
+  }
+`

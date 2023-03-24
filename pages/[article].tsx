@@ -11,6 +11,8 @@ import {getArticle} from 'queries/articles'
 import { NextPage } from "next";
 import { IMeta } from "types/Meta";
 import Chapters from "components/Chapters";
+import Page from "layout/Page";
+import { changeDescription, changeTitle } from "stores/slices/metaSlices";
 
 export const getServerSideProps = wrapper.getServerSideProps((store) =>
   async ({params}) => {
@@ -35,10 +37,10 @@ export const getServerSideProps = wrapper.getServerSideProps((store) =>
     }
 
     const article = data.articles.data[0].attributes
-    // const meta = homepage?.meta
+    const meta = article?.meta
 
-    // store.dispatch(changeTitle(meta?.title || 'Úvod'))
-    // store.dispatch(changeDescription(meta?.description || ''))
+    store.dispatch(changeTitle(meta?.title || ''))
+    store.dispatch(changeDescription(meta?.description || ''))
 
     return {
       props: {
@@ -77,7 +79,7 @@ const Article: NextPage<IArticle> = ({article}) => {
   }, [ref.current])
 
   return (
-    <main>
+    <Page>
       <Section big top>
         <Container maxWidth="xl">
           <Grid container spacing={14}>
@@ -95,7 +97,7 @@ const Article: NextPage<IArticle> = ({article}) => {
           </Grid>
         </Container>
       </Section>
-    </main>
+    </Page>
   );
 };
 

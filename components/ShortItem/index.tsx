@@ -14,7 +14,7 @@ const ShortItem: FC<IShortItem> = ({removemargin = false, data}) => {
     <ShortItemS removemargin={removemargin} href={`/blog/${data.slug}`} passHref>
       <Image src="/assets/img.png" fill alt="" />
       <Typography variant="h2">{data.title}</Typography>
-      <Typography dangerouslySetInnerHTML={{__html: data.perex}} />
+      <Typography component="div" dangerouslySetInnerHTML={{__html: data.perex}} />
     </ShortItemS>
   )
 }

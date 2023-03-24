@@ -1,10 +1,12 @@
 import { Container, Grid, Typography } from "@mui/material"
 import ShortItem from "components/ShortItem"
+import Page from "layout/Page"
 import { client } from "lib/api"
 import blogQuery from "queries/blog"
 import { getAllPosts } from "queries/posts"
 import { FC } from "react"
 import { wrapper } from "stores"
+import { changeDescription, changeTitle } from "stores/slices/metaSlices"
 import { Section } from "styles/section"
 
 export const getServerSideProps = wrapper.getServerSideProps((store) =>
@@ -15,10 +17,10 @@ export const getServerSideProps = wrapper.getServerSideProps((store) =>
 
     const posts = data.posts.data.map((item: any) => item.attributes)
     const blog = blogData.blog.data.attributes
-    // const meta = homepage?.meta
+    const meta = blog?.meta
 
-    // store.dispatch(changeTitle(meta?.title || 'Úvod'))
-    // store.dispatch(changeDescription(meta?.description || ''))
+    store.dispatch(changeTitle(meta?.title || 'Blog'))
+    store.dispatch(changeDescription(meta?.description || ''))
 
     return {
       props: {
@@ -50,7 +52,7 @@ interface IBlog {
 
 const Blog: FC<IBlog> = ({posts, blog}) => {
   return (
-    <main>
+    <Page>
       <Section big>
         <Container maxWidth="xl">
           <Grid container>
@@ -61,7 +63,7 @@ const Blog: FC<IBlog> = ({posts, blog}) => {
           </Grid>
         </Container>
       </Section>
-    </main>
+    </Page>
   )
 }
 

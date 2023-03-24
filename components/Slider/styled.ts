@@ -6,8 +6,28 @@ export const SwiperNav = styled.div(({theme}) => `
   button{
     border: none;
     background: transparent;
+    transition: all .5s ease;
+    transform: translateX(0);
+    padding: 15px;
     svg{
       color: black;
+    }
+    &:hover{
+      background: transparent;
+      &#swiper-back {
+        transform: translateX(-5px);
+      }
+      &#swiper-forward {
+        transform: translateX(5px);
+      }
+    }
+    &#swiper-back {
+      svg{
+        transform: rotate(180deg);
+      }
+    }
+    &#swiper-forward {
+
     }
   }
   ${theme.breakpoints.down('md')} {

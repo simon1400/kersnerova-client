@@ -4,6 +4,8 @@ import { HYDRATE } from "next-redux-wrapper";
 import { AppState } from 'stores';
 
 export interface NavState {
+  title: string;
+  description: string;
   published: string;
   category: string;
   updated: string;
@@ -19,6 +21,8 @@ export interface NavState {
 }
 
 const initialState: NavState = {
+  title: "",
+  description: "",
   published: "",
   category: "",
   updated: "",
@@ -28,15 +32,21 @@ const initialState: NavState = {
   ogTitle: "",
   ogDescription: "",
   contentType: "website",
-  themeColor: "#4545ff",
-  siteName: 'Tulsio',
-  siteUrl: process.env.NODE_ENV === 'development' ? 'http://localhost:3004/cs' : 'https://tulsio.com/cs'
+  themeColor: "#000000",
+  siteName: 'Keršnerová',
+  siteUrl: process.env.NODE_ENV === 'development' ? 'http://localhost:3004' : 'https://kelsnerova.hardart.cz'
 }
 
 export const metaReducer = createSlice({
   name: 'meta',
   initialState,
   reducers: {
+    changeTitle: (state, action: PayloadAction<string>) => {
+      state.title = action.payload
+    },
+    changeDescription: (state, action: PayloadAction<string>) => {
+      state.description = action.payload
+    },
     changePublished: (state, action: PayloadAction<string>) => {
       state.published = action.payload
     },
@@ -76,6 +86,8 @@ export const metaReducer = createSlice({
 })
 
 export const { 
+  changeTitle,
+  changeDescription,
   changePublished,
   changeCategory,
   changeNoCrawl,

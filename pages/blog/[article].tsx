@@ -1,10 +1,12 @@
 import { Container, Grid, Typography } from "@mui/material";
 import Chapters from "components/Chapters";
+import Page from "layout/Page";
 import { client } from "lib/api";
 import { NextPage } from "next";
 import Image from "next/image";
 import { getPost } from "queries/posts";
 import { wrapper } from "stores";
+import { changeDescription, changeTitle } from "stores/slices/metaSlices";
 import { ImgWrap } from "styles/img-wrap";
 import { Section } from "styles/section";
 import { IMeta } from "types/Meta";
@@ -32,10 +34,10 @@ export const getServerSideProps = wrapper.getServerSideProps(
       }
 
       const post = data.posts.data[0].attributes;
-      // const meta = homepage?.meta
+      const meta = post?.meta
 
-      // store.dispatch(changeTitle(meta?.title || 'Úvod'))
-      // store.dispatch(changeDescription(meta?.description || ''))
+      store.dispatch(changeTitle(meta?.title || ''))
+      store.dispatch(changeDescription(meta?.description || ''))
 
       return {
         props: {
@@ -63,7 +65,7 @@ interface IPost {
 
 const Post: NextPage<IPost> = ({ post }) => {
   return (
-    <main>
+    <Page>
       <Section big>
         <Container maxWidth="xl">
           <Typography variant="h1">
@@ -81,7 +83,7 @@ const Post: NextPage<IPost> = ({ post }) => {
           </Grid>
         </Container>
       </Section>
-    </main>
+    </Page>
   );
 };
 

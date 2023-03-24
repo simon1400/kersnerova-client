@@ -21,7 +21,7 @@ const Header = () => {
               <Hamburger color={isOpen ? "white" : "black"} toggled={isOpen} toggle={setOpen} label="Show menu" />
             </HamburderWrap>
           </ControlWrapS>
-          <Menu active={isOpen} />
+          <Menu active={isOpen} setOpen={setOpen} />
         </HeaderS>
       </Container>
     </HeaderWrap>

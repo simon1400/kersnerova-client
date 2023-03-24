@@ -41,6 +41,31 @@ export const MenuS = styled.div<{active: boolean}>(({theme, active}) => `
           font-size: 50px;
           text-decoration: none;
           line-height: 1.06;
+          transition: all .2s ease;
+          &:hover{
+            color: rgba(255, 255, 255, 0.7);
+          }
+          &.active{
+            border-bottom: 4px solid #ffffff;
+          }
+        }
+      }
+    }
+  }
+  ${theme.breakpoints.down('md')} {
+    nav{
+      ul{
+        li{
+          &:not(:last-of-type) {
+            margin-bottom: 19px;
+          }
+          a{
+            font-size: 30px;
+            line-height: 1.07;
+            &.active{
+              border-bottom: 2px solid #ffffff;
+            }
+          }
         }
       }
     }
