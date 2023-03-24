@@ -10,7 +10,6 @@ import { Section } from "styles/section";
 import {getArticle} from 'queries/articles'
 import { NextPage } from "next";
 import { IMeta } from "types/Meta";
-import { IImage } from "types/image";
 import Chapters from "components/Chapters";
 
 export const getServerSideProps = wrapper.getServerSideProps((store) =>
@@ -53,7 +52,14 @@ interface IArticle {
   article: {
     title: string;
     chapters: any;
-    image: IImage;
+    image: {
+      data: {
+        attributes: {
+          url: string;
+          alternativeText?: string;
+        };
+      };
+    };
     meta?: IMeta; 
   }
 }

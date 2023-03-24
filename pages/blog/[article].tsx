@@ -9,58 +9,59 @@ import { ImgWrap } from "styles/img-wrap";
 import { Section } from "styles/section";
 import { IMeta } from "types/Meta";
 
-export const getServerSideProps = wrapper.getServerSideProps((store) =>
-  async ({params}) => {
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) =>
+    async ({ params }) => {
+      if (!params?.article) {
+        return {
+          notFound: true,
+        };
+      }
 
-    if(!params?.article) {
+      const { data } = await client.query({
+        query: getPost,
+        variables: {
+          slug: params.article,
+        },
+      });
+
+      if (!data.posts.data || !data.posts.data.length) {
+        return {
+          notFound: true,
+        };
+      }
+
+      const post = data.posts.data[0].attributes;
+      // const meta = homepage?.meta
+
+      // store.dispatch(changeTitle(meta?.title || 'Úvod'))
+      // store.dispatch(changeDescription(meta?.description || ''))
+
       return {
-        notFound: true
-      }
+        props: {
+          post,
+        },
+      };
     }
-    
-    const { data } = await client.query({
-      query: getPost,
-      variables: {
-        slug: params.article
-      }
-    });
-
-    if(!data.posts.data || !data.posts.data.length) {
-      return {
-        notFound: true
-      }
-    }
-
-    const post = data.posts.data[0].attributes
-    // const meta = homepage?.meta
-
-    // store.dispatch(changeTitle(meta?.title || 'Úvod'))
-    // store.dispatch(changeDescription(meta?.description || ''))
-
-    return {
-      props: {
-        post
-      }
-    }
-  }
-)
+);
 
 interface IPost {
   post: {
     title: string;
     chapters: any;
-    image: {data: {
-      attributes: {
-        url: string;
-        alternativeText?: string;
-      }
-    }};
-    meta?: IMeta; 
-  }
+    image: {
+      data: {
+        attributes: {
+          url: string;
+          alternativeText?: string;
+        };
+      };
+    };
+    meta?: IMeta;
+  };
 }
 
-const Post: NextPage<IPost> = ({post}) => {
-
+const Post: NextPage<IPost> = ({ post }) => {
   return (
     <main>
       <Section big>
