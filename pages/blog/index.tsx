@@ -6,7 +6,7 @@ import { getAllPosts } from "queries/posts"
 import { FC } from "react"
 import { wrapper } from "stores"
 import { Section } from "styles/section"
-import { IImage } from "types/image"
+import {IImage} from 'types/image'
 
 export const getServerSideProps = wrapper.getServerSideProps((store) =>
   async ({params}) => {
