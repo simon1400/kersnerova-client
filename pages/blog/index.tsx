@@ -6,7 +6,6 @@ import { getAllPosts } from "queries/posts"
 import { FC } from "react"
 import { wrapper } from "stores"
 import { Section } from "styles/section"
-import {IImage} from 'types/image'
 
 export const getServerSideProps = wrapper.getServerSideProps((store) =>
   async ({params}) => {
@@ -35,7 +34,14 @@ interface IBlog {
     title: string;
     slug: string;
     perex: string;
-    image: IImage;
+    image: {
+      data: {
+        attributes: {
+          url: string;
+          alternativeText?: string;
+        };
+      };
+    };
   }[]
   blog: {
     title: string;
