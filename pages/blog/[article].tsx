@@ -7,7 +7,6 @@ import { getPost } from "queries/posts";
 import { wrapper } from "stores";
 import { ImgWrap } from "styles/img-wrap";
 import { Section } from "styles/section";
-import { IImage } from "types/image";
 import { IMeta } from "types/Meta";
 
 export const getServerSideProps = wrapper.getServerSideProps((store) =>
@@ -50,7 +49,12 @@ interface IPost {
   post: {
     title: string;
     chapters: any;
-    image: IImage;
+    image: {data: {
+      attributes: {
+        url: string;
+        alternativeText?: string;
+      }
+    }};
     meta?: IMeta; 
   }
 }
