@@ -5,13 +5,13 @@ import { IShortPost } from "types/ShortPosts";
 import { ShortItemS } from "./styled"
 
 interface IShortItem { 
-  removeMargin?: boolean;
+  removemargin?: boolean;
   data: IShortPost;
 }
 
-const ShortItem: FC<IShortItem> = ({removeMargin = false, data}) => {
+const ShortItem: FC<IShortItem> = ({removemargin = false, data}) => {
   return (
-    <ShortItemS removeMargin={removeMargin} href={`/blog/${data.slug}`} passHref>
+    <ShortItemS removemargin={removemargin} href={`/blog/${data.slug}`} passHref>
       <Image src="/assets/img.png" fill alt="" />
       <Typography variant="h2">{data.title}</Typography>
       <Typography dangerouslySetInnerHTML={{__html: data.perex}} />

@@ -1,14 +1,14 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
 
-export const ShortItemS = styled(Link)<{removeMargin?: boolean}>(({theme, removeMargin = false}) => `
+export const ShortItemS = styled(Link)<{removemargin?: boolean}>(({theme, removemargin = false}) => `
   border: 1.5px solid #1616151A;
   padding: 50px;
   position: relative;
   transition: all .5s ease;
   display: block;
   text-decoration: none;
-  margin-bottom: ${removeMargin ? "0" : "70px"};
+  margin-bottom: ${removemargin ? "0" : "70px"};
   > * {
     transition: all .5s ease;
   }
@@ -32,6 +32,6 @@ export const ShortItemS = styled(Link)<{removeMargin?: boolean}>(({theme, remove
   }
   ${theme.breakpoints.down('md')} {
     padding: 20px;
-    margin-bottom: ${removeMargin ? "0" : "20px"};
+    margin-bottom: ${removemargin ? "0" : "20px"};
   }
 `)

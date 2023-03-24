@@ -30,7 +30,7 @@ const Slider: FC<ISlider> = ({data}) => {
           spaceBetween={mediaMd ? 20 : 60}
           slidesPerView={mediaMd ? 1.2 : 2.5}
         >
-          {data.map((item, idx) => <SwiperSlide key={idx}><ShortItem removeMargin data={item}/></SwiperSlide>)}
+          {data.map((item, idx) => <SwiperSlide key={idx}><ShortItem removemargin data={item}/></SwiperSlide>)}
         </Swiper>
         <SwiperNav>
           <IconButton id="swiper-back" aria-label="swiper-back">
