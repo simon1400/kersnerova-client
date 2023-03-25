@@ -10,10 +10,10 @@ import { changeDescription, changeTitle } from "stores/slices/metaSlices"
 import { Section } from "styles/section"
 
 export const getServerSideProps = wrapper.getServerSideProps((store) =>
-  async ({params}) => {
+  async ({locale}) => {
     
-    const { data } = await client.query({query: getAllPosts});
-    const { data: blogData } = await client.query({query: blogQuery});
+    const { data } = await client.query({query: getAllPosts, variables: {locale}});
+    const { data: blogData } = await client.query({query: blogQuery, variables: {locale}});
 
     const posts = data.posts.data.map((item: any) => item.attributes)
     const blog = blogData.blog.data.attributes

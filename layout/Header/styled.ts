@@ -3,8 +3,8 @@ import styled from "@emotion/styled";
 export const HeaderS = styled.div(({theme}) => `
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 30px 0;
+  align-items: end;
+  padding: 0px 0 30px;
   background: white;
   svg{
     height: 65px;

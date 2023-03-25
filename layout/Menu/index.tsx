@@ -12,9 +12,12 @@ interface IMenu {
 }
 
 const Menu: FC<IMenu> = ({ active, setOpen }) => {
-  const { data, loading } = useQuery(navHeader);
-
   const router = useRouter()
+  const { data, loading } = useQuery(navHeader, {
+    variables: {locale: router.locale}
+  });
+
+  
 
   if (loading) {
     return <></>;

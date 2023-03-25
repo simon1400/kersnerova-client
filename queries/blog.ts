@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 const blogQuery = gql`
-  query Blog {
-    blog {
+  query Blog($locale: I18NLocaleCode!) {
+    blog(locale: $locale) {
       data {
         attributes {
 					title

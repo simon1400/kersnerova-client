@@ -18,8 +18,10 @@ export const LangS = styled.nav<{active: boolean}>(({theme, active}) => `
         color: ${active ? '#ffffff' : theme.palette.primary.main}66;
         text-decoration: none;
       }
-      .active{
-        color: ${theme.palette.primary.main};
+      &.active{
+        a{
+          color: ${active ? '#ffffff' : theme.palette.primary.main};
+        }
       }
     }
   }

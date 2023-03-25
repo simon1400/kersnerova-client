@@ -4,10 +4,15 @@ import Logo from 'public/assets/kersnerova-logo.svg'
 import Hardart from 'public/assets/hardart.svg'
 import globalQuery from "queries/global"
 import { useQuery } from "@apollo/client"
+import { useRouter } from "next/router"
 
 const Footer = () => {
 
-  const {data, loading} = useQuery(globalQuery)
+  const router = useRouter()
+
+  const {data, loading} = useQuery(globalQuery, {
+    variables: {locale: router.locale}
+  })
 
   if(loading) {
     return <></>

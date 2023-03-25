@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const getPost = gql`
-  query getPost($slug: String!) {
-    posts(filters: { slug: { eq: $slug } }) {
+  query getPost($slug: String!, $locale: String!) {
+    posts(filters: { slug: { eq: $slug } }, locale: $locale) {
       data {
         attributes {
           title
@@ -45,10 +45,11 @@ export const getPost = gql`
 
 
 export const getLastPosts = gql`
-  query getPosts {
+  query getPosts($locale: I18NLocaleCode!) {
     posts(
       pagination: {pageSize:5, page:1}
       sort: "publishedAt:asc"
+      locale: $locale
     ) {
       data {
         attributes {
@@ -70,8 +71,8 @@ export const getLastPosts = gql`
 `;
 
 export const getAllPosts = gql`
-  query getPosts {
-    posts(sort: "publishedAt:asc"){
+  query getPosts($locale: String!) {
+    posts(sort: "publishedAt:asc", locale: $locale){
       data {
         attributes {
           title

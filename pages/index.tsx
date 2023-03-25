@@ -12,9 +12,10 @@ import { Section } from "styles/section";
 import { IShortPost } from "types/ShortPosts";
 
 export const getServerSideProps = wrapper.getServerSideProps(
-  (store) => async () => {
-    const { data: homepageData } = await client.query({ query: homepageQuery });
-    const { data: postsData } = await client.query({ query: getLastPosts });
+  (store) => async ({locale}) => {
+    console.log(locale)
+    const { data: homepageData } = await client.query({ query: homepageQuery, variables: {locale} });
+    const { data: postsData } = await client.query({ query: getLastPosts, variables: {locale} });
 
     const homepage = homepageData.homepage.data.attributes;
     const posts = postsData.posts.data.map((item: any) => item.attributes);

@@ -15,7 +15,7 @@ import Page from "layout/Page";
 import { changeDescription, changeTitle } from "stores/slices/metaSlices";
 
 export const getServerSideProps = wrapper.getServerSideProps((store) =>
-  async ({params}) => {
+  async ({params, locale}) => {
 
     if(!params?.article) {
       return {
@@ -26,7 +26,8 @@ export const getServerSideProps = wrapper.getServerSideProps((store) =>
     const { data } = await client.query({
       query: getArticle,
       variables: {
-        slug: params.article
+        slug: params.article,
+        locale
       }
     });
 
@@ -39,7 +40,7 @@ export const getServerSideProps = wrapper.getServerSideProps((store) =>
     const article = data.articles.data[0].attributes
     const meta = article?.meta
 
-    store.dispatch(changeTitle(meta?.title || ''))
+    store.dispatch(changeTitle(meta?.title || article.title))
     store.dispatch(changeDescription(meta?.description || ''))
 
     return {
@@ -66,6 +67,8 @@ interface IArticle {
   }
 }
 
+const APP_API = process.env.APP_API
+
 const Article: NextPage<IArticle> = ({article}) => {
 
   const ref = useRef<HTMLDivElement>(null)
@@ -91,7 +94,7 @@ const Article: NextPage<IArticle> = ({article}) => {
             </Grid>
             <Grid item xs={12} md={6}>
               <ImgWrap ref={ref} marginImg={marginImg} big>
-                {marginImg !== 0 && <Image src="/assets/img.png" fill alt="" />}
+                {marginImg !== 0 && article.image.data && <Image src={APP_API+article.image.data.attributes.url} fill alt="" />}
               </ImgWrap>
             </Grid>
           </Grid>

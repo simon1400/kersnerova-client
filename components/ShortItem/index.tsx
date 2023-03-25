@@ -1,22 +1,38 @@
-import { Typography } from "@mui/material"
-import Image from "next/image"
-import { FC } from "react"
+import { Typography } from "@mui/material";
+import Image from "next/image";
+import { FC } from "react";
 import { IShortPost } from "types/ShortPosts";
-import { ShortItemS } from "./styled"
+import { ShortItemS } from "./styled";
 
-interface IShortItem { 
+const APP_API = process.env.APP_API
+
+interface IShortItem {
   removemargin?: boolean;
+  fullHeight?: boolean;
   data: IShortPost;
 }
 
-const ShortItem: FC<IShortItem> = ({removemargin = false, data}) => {
+const ShortItem: FC<IShortItem> = ({
+  removemargin = false,
+  data,
+  fullHeight = false,
+}) => {
+  console.log(data)
   return (
-    <ShortItemS removemargin={removemargin} href={`/blog/${data.slug}`} passHref>
-      <Image src="/assets/img.png" fill alt="" />
+    <ShortItemS
+      fullHeight={fullHeight}
+      removemargin={removemargin}
+      href={`/blog/${data.slug}`}
+      passHref
+    >
+      {data.image.data && <Image src={APP_API+data.image.data.attributes.url} fill alt="" />}
       <Typography variant="h2">{data.title}</Typography>
-      <Typography component="div" dangerouslySetInnerHTML={{__html: data.perex}} />
+      <Typography
+        component="div"
+        dangerouslySetInnerHTML={{ __html: data.perex }}
+      />
     </ShortItemS>
-  )
-}
+  );
+};
 
-export default ShortItem
+export default ShortItem;

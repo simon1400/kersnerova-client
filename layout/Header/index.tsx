@@ -14,11 +14,19 @@ const Header = () => {
     <HeaderWrap>
       <Container maxWidth="xl">
         <HeaderS>
-          <Link href="/"><Logo alt="Kersnerova" fill={isOpen ? "white" : "black"} /></Link>
+          <Link href="/">
+            <Logo alt="Kersnerova" fill={isOpen ? "white" : "black"} />
+          </Link>
           <ControlWrapS>
             <Lang active={isOpen} />
             <HamburderWrap>
-              <Hamburger color={isOpen ? "white" : "black"} toggled={isOpen} toggle={setOpen} label="Show menu" />
+              <Hamburger
+                color={isOpen ? "white" : "black"}
+                toggled={isOpen}
+                toggle={setOpen}
+                size={34}
+                label="Show menu"
+              />
             </HamburderWrap>
           </ControlWrapS>
           <Menu active={isOpen} setOpen={setOpen} />

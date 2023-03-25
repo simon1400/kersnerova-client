@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 const navHeader = gql`
-  query Nav {
-    nav {
+  query Nav($locale: I18NLocaleCode!) {
+    nav(locale: $locale) {
       data {
         attributes {
           topNav {

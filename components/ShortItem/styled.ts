@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
 
-export const ShortItemS = styled(Link)<{removemargin?: boolean}>(({theme, removemargin = false}) => `
+export const ShortItemS = styled(Link)<{removemargin?: boolean; fullHeight: boolean}>(({theme, removemargin = false, fullHeight}) => `
   border: 1.5px solid #1616151A;
   padding: 50px;
+  height: ${fullHeight ? "calc(100% - 100px)" : 'auto'};
   position: relative;
   transition: all .5s ease;
   display: block;

@@ -18,7 +18,7 @@ export const ContentS = styled.div(({theme}) => `
         display: block;
         position: absolute;
         left: 0;
-        top: 15px;
+        top: 19px;
         width: 11px;
         height: 1.5px;
         background-color: ${theme.palette.primary.main};
@@ -30,6 +30,9 @@ export const ContentS = styled.div(({theme}) => `
     margin-bottom: 70px;
     &:first-of-type{
       margin-top: 0;
+    }
+    a:hover{
+      color: rgba(0, 0, 0, .5);
     }
   }
 

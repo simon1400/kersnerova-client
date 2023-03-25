@@ -10,7 +10,8 @@ export const MenuS = styled.div<{active: boolean}>(({theme, active}) => `
   display: flex;
   align-items: center;
   overflow: hidden;
-  transition: all .5s ease;
+  transition: all 0s ease;
+  transition-delay: ${active ? "0s" : '.5s'};
   &:before{
     content: '';
     display: block;
@@ -23,6 +24,7 @@ export const MenuS = styled.div<{active: boolean}>(({theme, active}) => `
     height: 1px;
     border-radius: 50%;
     transition: all .8s ease;
+    transition-delay: ${active ? "0s" : '.5s'};
     transform: scale(${active ? "5000" : '1'})
   }
   nav{
@@ -33,6 +35,27 @@ export const MenuS = styled.div<{active: boolean}>(({theme, active}) => `
       padding: 0;
       li{
         text-align: right;
+        transition: all .5s ease;
+        transform: translateY(${active ? 0 : "-20px"});
+        opacity: ${active ? 1 : 0};
+        &:nth-child(1) {
+          transition-delay: .3s;
+        }
+        &:nth-child(2) {
+          transition-delay: .4s;
+        }
+        &:nth-child(3) {
+          transition-delay: .5s;
+        }
+        &:nth-child(4) {
+          transition-delay: .6s;
+        }
+        &:nth-child(5) {
+          transition-delay: .7s;
+        }
+        &:nth-child(6) {
+          transition-delay: .8s;
+        }
         &:not(:last-of-type) {
           margin-bottom: 30px;
         }

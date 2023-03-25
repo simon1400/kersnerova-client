@@ -13,7 +13,7 @@ import { IMeta } from "types/Meta";
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) =>
-    async ({ params }) => {
+    async ({ params, locale }) => {
       if (!params?.article) {
         return {
           notFound: true,
@@ -24,6 +24,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
         query: getPost,
         variables: {
           slug: params.article,
+          locale
         },
       });
 
@@ -36,7 +37,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
       const post = data.posts.data[0].attributes;
       const meta = post?.meta
 
-      store.dispatch(changeTitle(meta?.title || ''))
+      store.dispatch(changeTitle(meta?.title || post.title))
       store.dispatch(changeDescription(meta?.description || ''))
 
       return {
@@ -63,6 +64,8 @@ interface IPost {
   };
 }
 
+const APP_API = process.env.APP_API
+
 const Post: NextPage<IPost> = ({ post }) => {
   return (
     <Page>
@@ -77,7 +80,7 @@ const Post: NextPage<IPost> = ({ post }) => {
             </Grid>
             <Grid item xs={12} md={6}>
               <ImgWrap>
-                <Image src="/assets/img.png" fill alt="" />
+                {post.image.data && <Image src={APP_API+post.image.data.attributes.url} fill alt="" />}
               </ImgWrap>
             </Grid>
           </Grid>

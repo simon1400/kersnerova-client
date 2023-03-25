@@ -13,12 +13,25 @@ const nextConfig = {
 
     return config
   },
+  i18n: {
+    // These are all the locales you want to support in
+    // your application
+    locales: ['cs', 'en'],
+    // This is the default locale you want to be used when visiting
+    // a non-locale prefixed path e.g. `/hello`
+    defaultLocale: 'cs',
+    localeDetection: false,
+  },
+  trailingSlash: true,
   sassOptions: {
     fiber: false,
     includePaths: [path.join(__dirname, 'styles')],
   },
   env: {
     APP_API: process.env.APP_API
+  },
+  images: {
+    domains: ['kersnerova-strapi.hardart.cz'],
   },
   experimental: {
     fontLoaders: [
