@@ -39,12 +39,14 @@ export const getServerSideProps = wrapper.getServerSideProps((store) =>
 
     const article = data.articles.data[0].attributes
     const localizations = [
-      article.localizations.data[0].attributes,
       {
         locale,
         slug: params.article
       }
     ]
+    if(article.localizations.data?.length){
+      localizations.push(article.localizations.data[0].attributes)
+    }
     const meta = article?.meta
 
     store.dispatch(changeTitle(meta?.title || article.title))

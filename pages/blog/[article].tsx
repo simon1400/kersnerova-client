@@ -39,15 +39,15 @@ export const getServerSideProps = wrapper.getServerSideProps(
 
       const post = data.posts.data[0].attributes;
       const localizations = [
-        post.localizations.data[0].attributes,
         {
           locale,
           slug: params.article
         }
       ]
+      if(post.localizations.data?.length){
+        localizations.push(post.localizations.data[0].attributes)
+      }
       const meta = post?.meta
-
-      
 
       store.dispatch(changeTitle(meta?.title || post.title))
       store.dispatch(changeDescription(meta?.description || ''))
