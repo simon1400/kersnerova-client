@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 export const ContentS = styled.div(({theme}) => `
+  padding-bottom: 200px;
   ul {
     padding-left: 0;
     li {

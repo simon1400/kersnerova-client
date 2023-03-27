@@ -13,9 +13,10 @@ export const HeaderS = styled.div(({theme}) => `
     transition: all .5s ease;
   }
   ${theme.breakpoints.down('md')} {
-    padding: 7px 0;
+    padding: 0;
+    align-items: start;
     svg{
-      height: 25px;
+      height: 30px;
     }
   }
 `)

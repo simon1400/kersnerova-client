@@ -6,6 +6,7 @@ const homepageQuery = gql`
       data {
         attributes {
 					content
+          sliderTitle
           meta {
             title
             description

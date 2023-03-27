@@ -19,6 +19,7 @@ const Page: FC<IPage> = ({ children, className = "", id = "" }) => {
   const {
     title,
     description,
+    localizations,
     image,
     ogTitle,
     ogDescription,
@@ -66,11 +67,14 @@ const Page: FC<IPage> = ({ children, className = "", id = "" }) => {
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{theTitle}</title>
-        <link
-          rel="alternate"
-          hrefLang="cs"
-          href={DOMAIN + "/cs" + (router.asPath !== "/" ? router.asPath : "")}
-        />
+        {localizations.map((item, idx) => <link
+            key={idx}
+            rel="alternate"
+            hrefLang={item.locale}
+            href={DOMAIN + "/" + item.locale + (router.asPath !== "/" ? "/"+item.slug : "")}
+          />
+        )}
+        
         <link
           rel="canonical"
           href={global.site_url + (router.asPath !== "/" ? router.asPath : "")}

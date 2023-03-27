@@ -27,7 +27,7 @@ const Footer = () => {
             <Typography component="div" dangerouslySetInnerHTML={{__html: data.global.data.attributes.footerInfo}} />
           </Grid>
           <Grid item xs={6}>
-            <CopyrightLogo>
+            <CopyrightLogo href="mailto:daniel.kokes@gmail.com,dmytro@pechunka.com">
               <Hardart />
             </CopyrightLogo>
           </Grid>

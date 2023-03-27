@@ -15,16 +15,17 @@ import { FC } from "react";
 
 interface ISlider {
   data: IShortPost[];
+  title: string;
 }
 
-const Slider: FC<ISlider> = ({ data }) => {
+const Slider: FC<ISlider> = ({ title, data }) => {
   const mediaMd = useMediaQuery("(max-width:960px)");
 
   return (
     <SliderWrap>
       <Container maxWidth="xl">
         <Typography variant="h2">
-          <span>Články</span>
+          <span>{title}</span>
         </Typography>
         <Swiper
           style={{

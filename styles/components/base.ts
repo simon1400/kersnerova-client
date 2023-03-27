@@ -10,7 +10,8 @@ export const base = () => ({
       minHeight: "100vh",
       fontSize: "16px",
       width: '100%',
-      backgroundColor: "#ffffff"
+      backgroundColor: "#ffffff",
+      marginBottom: "100vh"
     }
   }
 })

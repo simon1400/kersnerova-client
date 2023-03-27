@@ -17,7 +17,6 @@ const ShortItem: FC<IShortItem> = ({
   data,
   fullHeight = false,
 }) => {
-  console.log(data)
   return (
     <ShortItemS
       fullHeight={fullHeight}

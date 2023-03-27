@@ -6,6 +6,7 @@ import { AppState } from 'stores';
 export interface NavState {
   title: string;
   description: string;
+  localizations: any[];
   published: string;
   category: string;
   updated: string;
@@ -23,6 +24,7 @@ export interface NavState {
 const initialState: NavState = {
   title: "",
   description: "",
+  localizations: [],
   published: "",
   category: "",
   updated: "",
@@ -46,6 +48,9 @@ export const metaReducer = createSlice({
     },
     changeDescription: (state, action: PayloadAction<string>) => {
       state.description = action.payload
+    },
+    changeLocalizations: (state, action: PayloadAction<any[]>) => {
+      state.localizations = action.payload
     },
     changePublished: (state, action: PayloadAction<string>) => {
       state.published = action.payload
@@ -86,6 +91,7 @@ export const metaReducer = createSlice({
 export const { 
   changeTitle,
   changeDescription,
+  changeLocalizations,
   changePublished,
   changeCategory,
   changeNoCrawl,

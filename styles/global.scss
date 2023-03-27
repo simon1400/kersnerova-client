@@ -2,9 +2,10 @@ main {
   min-height: 60vh;
   position: relative;
   z-index: 1;
-  margin-bottom: 100vh;
   background: white!important;
+  overflow: hidden;
 }
+
 /* Customize website's scrollbar like Mac OS
 Not supports in Firefox and IE */
 

@@ -19,13 +19,11 @@ const ChapterItem: FC<ChapterProps> = ({
 }) => {
 
   return (
-    <Content>
-      <>
-        {head && <Typography variant="h2">{head}</Typography>}
-        {content && <Typography component="div" dangerouslySetInnerHTML={{__html: content}} />}
-        {button && <Button href={button.link}>{button.text}</Button>}
-      </>
-    </Content>
+    <>
+      {head && <Typography variant="h2">{head}</Typography>}
+      {content && <Typography component="div" dangerouslySetInnerHTML={{__html: content}} />}
+      {button && <Button href={button.link}>{button.text}</Button>}
+    </>
   )
 }
 

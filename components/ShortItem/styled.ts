@@ -33,6 +33,10 @@ export const ShortItemS = styled(Link)<{removemargin?: boolean; fullHeight: bool
   }
   ${theme.breakpoints.down('md')} {
     padding: 20px;
+    height: ${fullHeight ? "calc(100% - 40px)" : 'auto'};
     margin-bottom: ${removemargin ? "0" : "20px"};
+    h2{
+      margin-bottom: 20px;
+    }
   }
 `)

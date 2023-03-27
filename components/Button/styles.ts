@@ -11,6 +11,7 @@ export const ButtonS = styled(Button)(({theme}) => `
   border: 1.5px solid ${theme.palette.primary.main};
   border-radius: 0;
   box-shadow: none;
+  margin-bottom: 40px;
   &:hover{
     background: white;
     color: ${theme.palette.primary.main};
@@ -19,5 +20,6 @@ export const ButtonS = styled(Button)(({theme}) => `
     min-width: 165px;
     height: 44px;
     font-size: 16px;
+    margin-bottom: 20px;
   }
 `)

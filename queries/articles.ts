@@ -37,6 +37,14 @@ export const getArticle = gql`
               }
             }
           }
+          localizations {
+            data{
+              attributes{
+                slug
+                locale
+              }
+            }
+          }
         }
       }
     }

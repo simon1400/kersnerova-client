@@ -6,7 +6,7 @@ import blogQuery from "queries/blog"
 import { getAllPosts } from "queries/posts"
 import { FC } from "react"
 import { wrapper } from "stores"
-import { changeDescription, changeTitle } from "stores/slices/metaSlices"
+import { changeDescription, changeLocalizations, changeTitle } from "stores/slices/metaSlices"
 import { Section } from "styles/section"
 
 export const getServerSideProps = wrapper.getServerSideProps((store) =>
@@ -19,8 +19,20 @@ export const getServerSideProps = wrapper.getServerSideProps((store) =>
     const blog = blogData.blog.data.attributes
     const meta = blog?.meta
 
+    const localizations = [
+      {
+        locale: 'cs',
+        slug: '/blog'
+      },
+      {
+        locale: 'en',
+        slug: '/blog'
+      },
+    ]
+
     store.dispatch(changeTitle(meta?.title || 'Blog'))
     store.dispatch(changeDescription(meta?.description || ''))
+    store.dispatch(changeLocalizations(localizations))
 
     return {
       props: {

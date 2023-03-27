@@ -7,13 +7,12 @@ import homepageQuery from "queries/homepage";
 import { getLastPosts } from "queries/posts";
 import { FC } from "react";
 import { wrapper } from "stores";
-import { changeDescription, changeTitle } from "stores/slices/metaSlices";
+import { changeDescription, changeLocalizations, changeTitle } from "stores/slices/metaSlices";
 import { Section } from "styles/section";
 import { IShortPost } from "types/ShortPosts";
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async ({locale}) => {
-    console.log(locale)
     const { data: homepageData } = await client.query({ query: homepageQuery, variables: {locale} });
     const { data: postsData } = await client.query({ query: getLastPosts, variables: {locale} });
 
@@ -21,8 +20,20 @@ export const getServerSideProps = wrapper.getServerSideProps(
     const posts = postsData.posts.data.map((item: any) => item.attributes);
     const meta = homepage?.meta;
 
+    const localizations = [
+      {
+        locale: 'cs',
+        slug: '/'
+      },
+      {
+        locale: 'en',
+        slug: '/'
+      },
+    ]
+
     store.dispatch(changeTitle(meta?.title || "Úvod"));
     store.dispatch(changeDescription(meta?.description || ""));
+    store.dispatch(changeLocalizations(localizations))
 
     return {
       props: {
@@ -36,6 +47,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
 interface IHomepage {
   homepage: {
     content: string;
+    sliderTitle: string;
   };
   posts: IShortPost[];
 }
@@ -56,7 +68,7 @@ const Homepage: FC<IHomepage> = ({ homepage, posts }) => {
           </Grid>
         </Container>
       </Section>
-      <Slider data={posts} />
+      <Slider title={homepage.sliderTitle} data={posts} />
     </Page>
   );
 };

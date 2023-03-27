@@ -28,7 +28,8 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles')],
   },
   env: {
-    APP_API: process.env.APP_API
+    APP_API: process.env.APP_API,
+    APP_DOMAIN: process.env.APP_DOMAIN
   },
   images: {
     domains: ['kersnerova-strapi.hardart.cz'],

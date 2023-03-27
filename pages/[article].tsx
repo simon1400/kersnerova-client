@@ -12,7 +12,7 @@ import { NextPage } from "next";
 import { IMeta } from "types/Meta";
 import Chapters from "components/Chapters";
 import Page from "layout/Page";
-import { changeDescription, changeTitle } from "stores/slices/metaSlices";
+import { changeDescription, changeLocalizations, changeTitle } from "stores/slices/metaSlices";
 
 export const getServerSideProps = wrapper.getServerSideProps((store) =>
   async ({params, locale}) => {
@@ -38,10 +38,18 @@ export const getServerSideProps = wrapper.getServerSideProps((store) =>
     }
 
     const article = data.articles.data[0].attributes
+    const localizations = [
+      article.localizations.data[0].attributes,
+      {
+        locale,
+        slug: params.article
+      }
+    ]
     const meta = article?.meta
 
     store.dispatch(changeTitle(meta?.title || article.title))
     store.dispatch(changeDescription(meta?.description || ''))
+    store.dispatch(changeLocalizations(localizations))
 
     return {
       props: {
@@ -90,7 +98,9 @@ const Article: NextPage<IArticle> = ({article}) => {
               <Typography variant="h1">
                 <span>{article.title}</span>
               </Typography>
-              <Chapters data={article.chapters}/>
+              <Content>
+                <Chapters data={article.chapters}/>
+              </Content>
             </Grid>
             <Grid item xs={12} md={6}>
               <ImgWrap ref={ref} marginImg={marginImg} big>
