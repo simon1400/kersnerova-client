@@ -81,16 +81,6 @@ const APP_API = process.env.APP_API
 
 const Article: NextPage<IArticle> = ({article}) => {
 
-  const ref = useRef<HTMLDivElement>(null)
-
-  const [marginImg, setMarginImg] = useState(0)
-
-  useEffect(() => {
-    if(ref.current) {
-      setMarginImg(ref.current.offsetLeft)
-    }
-  }, [ref.current])
-
   return (
     <Page>
       <Section big top>
@@ -105,8 +95,8 @@ const Article: NextPage<IArticle> = ({article}) => {
               </Content>
             </Grid>
             <Grid item xs={12} md={6}>
-              <ImgWrap ref={ref} marginImg={marginImg} big>
-                {marginImg !== 0 && article.image.data && <Image src={APP_API+article.image.data.attributes.url} fill alt="" />}
+              <ImgWrap>
+                {article.image.data && <Image src={APP_API+article.image.data.attributes.url} fill alt="" />}
               </ImgWrap>
             </Grid>
           </Grid>

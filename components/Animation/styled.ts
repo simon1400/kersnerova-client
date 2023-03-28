@@ -6,7 +6,7 @@ const arrowAnimation = keyframes`
  100% { opacity: 1; }
 `
 
-export const Animations = styled.div`
+export const Animations = styled.div(({theme}) => `
   height: 100vh;
   position: relative;
   overflow: hidden;
@@ -27,6 +27,11 @@ export const Animations = styled.div`
       left: 50%;
     }
   }
+  ${theme.breakpoints.down('md')} {
+    > svg {
+      bottom: 120px;
+    }
+  }
   @media(min-width: 1560px) {
     > div svg {
       width: auto!important;
@@ -35,8 +40,7 @@ export const Animations = styled.div`
       left: 50%;
       transform: translateX(-50%) translate3d(0px, 0px, 0px)!important;
     }
-    
   }
-`
+`)
 
 

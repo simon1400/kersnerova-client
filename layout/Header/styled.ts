@@ -7,10 +7,15 @@ export const HeaderS = styled.div(({theme}) => `
   padding: 0px 0 30px;
   background: white;
   svg{
-    height: 65px;
-    position: relative;
-    z-index: 1001;
+    position: absolute;
+    z-index: 999;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
     transition: all .5s ease;
+    g{
+      cursor: pointer;
+    }
   }
   ${theme.breakpoints.down('md')} {
     padding: 0;

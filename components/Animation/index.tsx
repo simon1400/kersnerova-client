@@ -2,7 +2,6 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import { useMediaQuery } from "@mui/material";
 import { Animations } from "./styled";
 import Arrow from "public/assets/arrow.svg";
-import { useRef } from "react";
 
 const Animation = () => {
   let urlAnimation = "";
@@ -13,8 +12,6 @@ const Animation = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-  const ref = useRef(null)
 
   const xl = useMediaQuery("(min-width: 1560px)");
   const lg = useMediaQuery("(max-width: 1560px)");
@@ -30,7 +27,7 @@ const Animation = () => {
     <Animations>
       <Player 
         autoplay
-        ref={ref}
+        keepLastFrame
         src={urlAnimation} 
       />
       <Arrow onClick={() => handleClick()} />
