@@ -6,17 +6,6 @@ export const HeaderS = styled.div(({theme}) => `
   align-items: end;
   padding: 0px 0 30px;
   background: white;
-  svg{
-    position: absolute;
-    z-index: 999;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 0;
-    transition: all .5s ease;
-    g{
-      cursor: pointer;
-    }
-  }
   ${theme.breakpoints.down('md')} {
     padding: 0;
     align-items: start;
