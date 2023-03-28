@@ -6,15 +6,19 @@ import { Container } from "@mui/material";
 import Logo from "public/assets/kersnerova-logo.svg";
 import Menu from "layout/Menu";
 import Link from "next/link";
+import { selectAllState } from "stores/slices/diffState";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [isOpen, setOpen] = useState(false);
+
+  const {homepage} = useSelector(selectAllState);
 
   return (
     <HeaderWrap>
       <Container maxWidth="xl">
         <HeaderS>
-          <Link style={{transition: "all .2s ease", opacity: isOpen ? 1 : 0}} href="/">
+          <Link style={{transition: "all .2s ease", opacity: isOpen || !homepage ? 1 : 0}} href="/">
             <Logo alt="Kersnerova" fill={isOpen ? "white" : "black"} />
           </Link>
           <ControlWrapS>

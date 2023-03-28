@@ -7,6 +7,7 @@ import homepageQuery from "queries/homepage";
 import { getLastPosts } from "queries/posts";
 import { FC } from "react";
 import { wrapper } from "stores";
+import { changeHomepage } from "stores/slices/diffState";
 import { changeDescription, changeLocalizations, changeTitle } from "stores/slices/metaSlices";
 import { Section } from "styles/section";
 import { IShortPost } from "types/ShortPosts";
@@ -34,6 +35,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
     store.dispatch(changeTitle(meta?.title || "Úvod"));
     store.dispatch(changeDescription(meta?.description || ""));
     store.dispatch(changeLocalizations(localizations))
+    store.dispatch(changeHomepage(true))
 
     return {
       props: {
@@ -56,7 +58,7 @@ const Homepage: FC<IHomepage> = ({ homepage, posts }) => {
   return (
     <Page>
       <Animation />
-      <Section>
+      <Section id="content">
         <Container maxWidth="xl">
           <Grid container>
             <Grid item xs={12} lg={6}>

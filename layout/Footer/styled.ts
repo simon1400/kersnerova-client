@@ -34,7 +34,7 @@ export const FooterS = styled.footer(({theme}) => `
   }
 `)
 
-export const CopyrightLogo = styled.a`
+export const CopyrightLogo = styled.a(({theme}) => `
   display: flex;
   align-items: end;
   justify-content: flex-end;
@@ -45,4 +45,9 @@ export const CopyrightLogo = styled.a`
   svg{
     margin-bottom: 0!important;
   }
-`
+  ${theme.breakpoints.down('md')} {
+    svg{
+      height: 24px;
+    }
+  }
+`)

@@ -15,6 +15,7 @@ export const ButtonS = styled(Button)(({theme}) => `
   &:hover{
     background: white;
     color: ${theme.palette.primary.main};
+    box-shadow: none;
   }
   ${theme.breakpoints.down('md')} {
     min-width: 165px;

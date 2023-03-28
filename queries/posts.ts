@@ -56,7 +56,7 @@ export const getLastPosts = gql`
   query getPosts($locale: I18NLocaleCode!) {
     posts(
       pagination: {pageSize:5, page:1}
-      sort: "publishedAt:asc"
+      sort: "publishedAt:desc"
       locale: $locale
     ) {
       data {
@@ -80,7 +80,7 @@ export const getLastPosts = gql`
 
 export const getAllPosts = gql`
   query getPosts($locale: I18NLocaleCode!) {
-    posts(sort: "publishedAt:asc", locale: $locale){
+    posts(sort: "publishedAt:desc", locale: $locale){
       data {
         attributes {
           title

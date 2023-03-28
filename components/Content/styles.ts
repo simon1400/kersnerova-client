@@ -2,6 +2,9 @@ import styled from "@emotion/styled";
 
 export const ContentS = styled.div(({theme}) => `
   padding-bottom: 200px;
+  ${theme.breakpoints.down('md')} {
+    padding-bottom: 0px;
+  }
   ul {
     padding-left: 0;
     li {
