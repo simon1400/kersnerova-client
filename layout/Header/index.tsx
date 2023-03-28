@@ -14,7 +14,7 @@ const Header = () => {
     <HeaderWrap>
       <Container maxWidth="xl">
         <HeaderS>
-          <Link href="/">
+          <Link style={{transition: "all .2s ease", opacity: isOpen ? 1 : 0}} href="/">
             <Logo alt="Kersnerova" fill={isOpen ? "white" : "black"} />
           </Link>
           <ControlWrapS>

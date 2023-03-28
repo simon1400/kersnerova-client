@@ -33,4 +33,8 @@ export const HamburderWrap = styled.div`
 
 export const HeaderWrap = styled.header`
   background: white;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100px;
 `
