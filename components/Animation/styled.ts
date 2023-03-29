@@ -1,15 +1,13 @@
-import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
-
-const arrowAnimation = keyframes`
- 0% { opacity: 0; }
- 100% { opacity: 1; }
-`
 
 export const Animations = styled.div(({theme}) => `
   height: 100vh;
   position: relative;
   overflow: hidden;
+  @keyframes arrowAnimation {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
   > svg {
     position: absolute;
     cursor: pointer;
@@ -17,7 +15,7 @@ export const Animations = styled.div(({theme}) => `
     bottom: 20px;
     transform: translate(-50%, 0px) rotate(90deg);
     opacity: 0;
-    animation-name: ${arrowAnimation};
+    animation-name: arrowAnimation;
     animation-duration: 1s;
     animation-delay: 5.6s;
     animation-fill-mode: forwards;
