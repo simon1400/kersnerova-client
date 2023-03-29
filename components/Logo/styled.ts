@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 export const LogoS = styled.div`
+  height: 90px;
   svg{
     position: absolute;
     z-index: 999;
@@ -9,9 +10,10 @@ export const LogoS = styled.div`
     top: 0;
     transition: all .5s ease;
     g{
-      rect{
-        cursor: pointer;
-      }
+      cursor: pointer;
+    }
+    #BUTTON {
+      cursor: pointer;
     }
   }
   @media(max-width: 1560px) {
