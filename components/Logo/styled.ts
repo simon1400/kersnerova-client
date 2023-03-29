@@ -14,4 +14,12 @@ export const LogoS = styled.div`
       }
     }
   }
+  @media(max-width: 1560px) {
+    svg{
+      max-width: 100%;
+      left: 0;
+      transform: translateX(0);
+      height: auto;
+    }
+  }
 `
