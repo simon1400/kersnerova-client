@@ -18,10 +18,10 @@ const Animation = () => {
   const md = useMediaQuery("(max-width: 1100px)");
   const sm = useMediaQuery("(max-width: 942px)");
 
-  if (xl) urlAnimation = "animations/9999_-_1560.json";
-  if (lg) urlAnimation = "animations/1560_-_1100.json";
-  if (md) urlAnimation = "animations/1100_-_942.json";
-  if (sm) urlAnimation = "animations/942_-_320.json";
+  if (xl) urlAnimation = "/animations/9999_-_1560.json";
+  if (lg) urlAnimation = "/animations/1560_-_1100.json";
+  if (md) urlAnimation = "/animations/1100_-_942.json";
+  if (sm) urlAnimation = "/animations/942_-_320.json";
 
   return (
     <Animations>
