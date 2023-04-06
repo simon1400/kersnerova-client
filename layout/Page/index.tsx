@@ -4,6 +4,9 @@ import { useRouter } from "next/router";
 // import Script from "next/script";
 import { useSelector } from "react-redux";
 import { selectAllMeta } from "stores/slices/metaSlices";
+import { motion } from "framer-motion"
+import Header from "layout/Header";
+import Footer from "layout/Footer";
 
 const DOMAIN = process.env.APP_DOMAIN;
 
@@ -133,10 +136,22 @@ const Page: FC<IPage> = ({ children, className = "", id = "" }) => {
         ></iframe>
       </noscript> */}
       {/*<!-- End Google Tag Manager (noscript) -->*/}
-
+      <Header />
       <main id={id} className={className}>
+      <motion.div
+        initial={{ x: 300, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: 300, opacity: 0 }}
+        transition={{
+          type: "spring",
+          stiffness: 260,
+          damping: 20,
+        }}
+      >
         {children}
+        </motion.div>
       </main>
+      <Footer />
     </>
   );
 };

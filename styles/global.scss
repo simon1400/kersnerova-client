@@ -6,6 +6,25 @@ main {
   overflow: hidden;
 }
 
+.animate-block-black{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2000;
+}
+.animate-block-white{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1800;
+}
+
 /* Customize website's scrollbar like Mac OS
 Not supports in Firefox and IE */
 

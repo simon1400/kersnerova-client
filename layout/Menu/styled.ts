@@ -38,22 +38,22 @@ export const MenuS = styled.div<{active: boolean}>(({theme, active}) => `
         transition: all .5s ease;
         transform: translateY(${active ? 0 : "-20px"});
         opacity: ${active ? 1 : 0};
-        &:nth-child(1) {
+        &:nth-of-type(1) {
           transition-delay: .3s;
         }
-        &:nth-child(2) {
+        &:nth-of-type(2) {
           transition-delay: .4s;
         }
-        &:nth-child(3) {
+        &:nth-of-type(3) {
           transition-delay: .5s;
         }
-        &:nth-child(4) {
+        &:nth-of-type(4) {
           transition-delay: .6s;
         }
-        &:nth-child(5) {
+        &:nth-of-type(5) {
           transition-delay: .7s;
         }
-        &:nth-child(6) {
+        &:nth-of-type(6) {
           transition-delay: .8s;
         }
         &:not(:last-of-type) {
