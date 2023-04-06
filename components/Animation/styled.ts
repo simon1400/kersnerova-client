@@ -8,30 +8,39 @@ export const Animations = styled.div(({theme}) => `
     0% { opacity: 0; }
     100% { opacity: 1; }
   }
-  > svg {
+  > div:last-of-type {
     position: absolute;
-    cursor: pointer;
     left: 50%;
     bottom: 20px;
-    transform: translate(-50%, 0px) rotate(90deg);
-    opacity: 0;
-    animation-name: arrowAnimation;
-    animation-duration: 1s;
-    animation-delay: 5.6s;
-    animation-fill-mode: forwards;
-    transition: all .2s ease;
+    transform: translateX(-50%);
+    cursor: pointer;
+    width: 31px;
+    height: 35px;
     &:hover{
-      transform: translate(-50%, 10px) rotate(90deg);
-      left: 50%;
+      > svg {
+        transform: translateY(10px) rotate(90deg);
+        left: 50%;
+      }
+    }
+    > svg {
+      transform: translateY(0px) rotate(90deg); 
+      opacity: 0;
+      margin-left: -2px;
+      margin-top: 2px;
+      animation-name: arrowAnimation;
+      animation-duration: 1s;
+      animation-delay: 5.6s;
+      animation-fill-mode: forwards;
+      transition: all .2s ease;
     }
   }
   ${theme.breakpoints.down('md')} {
-    > svg {
+    > div:last-of-type > svg {
       bottom: 120px;
     }
   }
   @media(min-width: 1560px) {
-    > div svg {
+    > div:first-of-type svg {
       width: auto!important;
       display: block;
       position: relative;

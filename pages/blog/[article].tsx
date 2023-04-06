@@ -93,7 +93,7 @@ const Post: NextPage<IPost> = ({ post }) => {
             </Grid>
             <Grid item xs={12} md={6}>
               <ImgWrap>
-                {post.image.data && <Image src={APP_API+post.image.data.attributes.url} fill alt="" />}
+                {post.image.data && <Image src={APP_API+post.image.data.attributes.url+"?format=webp&width=670"} fill alt="" />}
               </ImgWrap>
             </Grid>
           </Grid>

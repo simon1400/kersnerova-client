@@ -4,6 +4,12 @@ export const ContentS = styled.div(({theme}) => `
   padding-bottom: 200px;
   ${theme.breakpoints.down('md')} {
     padding-bottom: 0px;
+    ul li {
+      padding-left: 23px!important;
+      &:before{
+        top: 13px!important;
+      }
+    }
   }
   ul {
     padding-left: 0;

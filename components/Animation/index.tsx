@@ -30,7 +30,7 @@ const Animation = () => {
         keepLastFrame
         src={urlAnimation} 
       />
-      <Arrow onClick={() => handleClick()} />
+      <div><Arrow onClick={() => handleClick()} /></div>
     </Animations>
   );
 };

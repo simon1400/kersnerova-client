@@ -26,9 +26,6 @@ export const SwiperNav = styled.div(({theme}) => `
         transform: rotate(180deg);
       }
     }
-    &#swiper-forward {
-
-    }
   }
   ${theme.breakpoints.down('md')} {
     margin-top: 30px;
@@ -53,5 +50,4 @@ export const SliderWrap = styled.div(({theme}) => `
       }
     }
   }
-  
 `)

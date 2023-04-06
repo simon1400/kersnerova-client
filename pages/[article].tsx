@@ -96,7 +96,7 @@ const Article: NextPage<IArticle> = ({article}) => {
             </Grid>
             <Grid item xs={12} md={6}>
               <ImgWrap>
-                {article.image.data && <Image src={APP_API+article.image.data.attributes.url} fill alt="" />}
+                {article.image.data && <Image src={APP_API+article.image.data.attributes.url+"?format=webp&width=670"} fill alt="" />}
               </ImgWrap>
             </Grid>
           </Grid>

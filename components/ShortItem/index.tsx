@@ -24,7 +24,7 @@ const ShortItem: FC<IShortItem> = ({
       href={`/blog/${data.slug}`}
       passHref
     >
-      {data.image.data && <Image src={APP_API+data.image.data.attributes.url} fill alt="" />}
+      {data.image.data && <Image src={APP_API+data.image.data.attributes.url+"?format=webp&width=550"} fill alt="" />}
       <Typography variant="h2">{data.title}</Typography>
       <Typography
         component="div"
