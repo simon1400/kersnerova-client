@@ -3,6 +3,8 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import { HYDRATE } from "next-redux-wrapper";
 import { AppState } from 'stores';
 
+const APP_DOMAIN = process.env.APP_DOMAIN
+
 export interface NavState {
   title: string;
   description: string;
@@ -36,7 +38,7 @@ const initialState: NavState = {
   contentType: "website",
   themeColor: "#000000",
   siteName: 'Keršnerová',
-  siteUrl: process.env.NODE_ENV === 'development' ? 'http://localhost:3004' : 'https://kelsnerova.hardart.cz'
+  siteUrl: APP_DOMAIN || "http://localhost:3004"
 }
 
 export const metaReducer = createSlice({

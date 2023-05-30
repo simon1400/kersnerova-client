@@ -22,7 +22,7 @@ const nextConfig = {
     defaultLocale: 'cs',
     localeDetection: false,
   },
-  trailingSlash: true,
+  trailingSlash: false,
   sassOptions: {
     fiber: false,
     includePaths: [path.join(__dirname, 'styles')],

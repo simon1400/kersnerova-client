@@ -1,7 +1,6 @@
 import { FC, ReactNode } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-// import Script from "next/script";
 import { useSelector } from "react-redux";
 import { selectAllMeta } from "stores/slices/metaSlices";
 import { motion } from "framer-motion"
@@ -74,7 +73,7 @@ const Page: FC<IPage> = ({ children, className = "", id = "" }) => {
             key={idx}
             rel="alternate"
             hrefLang={item.locale}
-            href={DOMAIN + "/" + item.locale + (router.asPath !== "/" ? "/"+item.slug : "")}
+            href={DOMAIN + (item.locale === 'cs' ? "" : "/" + item.locale) + (router.asPath !== "/" ? "/"+item.slug : "")}
           />
         )}
         

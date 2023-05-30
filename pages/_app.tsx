@@ -9,10 +9,8 @@ import { WithGraphQL } from 'lib/api';
 import theme from 'styles/theme';
 import "styles/global.scss"
 import { globalVariables } from 'styles/var';
-import Header from 'layout/Header';
 
 import {IBM_Plex_Sans} from 'next/font/google'
-import Footer from 'layout/Footer';
 import { Provider } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
 

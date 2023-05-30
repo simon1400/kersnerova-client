@@ -11,7 +11,7 @@ export const Animations = styled.div(({theme}) => `
   > div:last-of-type {
     position: absolute;
     left: 50%;
-    bottom: 20px;
+    bottom: 70px;
     transform: translateX(-50%);
     cursor: pointer;
     width: 31px;
